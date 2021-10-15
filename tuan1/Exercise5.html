@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+        }
+        .container{
+            width: 800px;
+        }
+        table,td{
+            border: 1px solid #000000;
+        }
+        table{
+            padding: 0;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .header{
+            min-height: 200px;
+            position: relative;
+        }
+        td{
+            margin: 0;
+            padding: 0;
+            line-height: 2em;
+        }
+        .title{
+            width: 30%;
+        }
+        .info{
+            width: 70%;
+        }
+        .detail{
+            width: 70%;
+        }
+        .image{
+            width: 30%;
+        }
+        .form{
+            position: absolute;
+            top: 0;
+            font-size: 1.3em;
+            display: flex;
+            flex-direction: column;
+            padding-left: 5px;
+        }
+        textarea{
+            border: none;
+            outline: none;
+            overflow: hidden;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .imgbox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            height: 120px;
+            width: 120px;
+        }
+        .custom-file-input {
+            color: transparent;
+        }
+        .info input{
+            outline: none;
+            border: none;
+            width: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table class="header">
+        <tr>
+            <td class="detail">
+                <div class="form">
+                    Personal Details
+                    <textarea name="detail" id="detail" cols="70" rows="10"></textarea>
+                </div>
+            </td>
+            <td class="image">
+                <div class="imgbox">
+                    Image
+                    <img src="">  
+                    <input type="file" class="custom-file-input" required />                  
+                </div>                
+            </td>
+        </tr> 
+        </table>
+        <table class="infomation">
+        <tr>
+            <td class="title">Education process</td>
+            <td class="info">
+                <input type="text">
+            </td>
+        </tr>
+        <tr>
+            <td class="title">Working process</td>
+            <td class="info">
+                <input type="text">
+            </td>
+        </tr>  
+        <tr>
+            <td class="title">Society activities</td>
+            <td class="info">
+                <input type="text">
+            </td>
+        </tr>  
+        <tr>
+            <td class="title">Skills</td>
+            <td class="info">
+                <input type="text">
+            </td>
+        </tr>
+        <tr>
+            <td class="title">Experiences</td>
+            <td class="info">
+                <input type="text">
+            </td>
+        </tr>
+        <tr>
+            <td class="title">Certifications</td>
+            <td class="info">
+                <input type="text">
+            </td>
+        </tr>  
+        <tr>
+            <td class="title">Hobbies</td>
+            <td class="info">
+                <input type="text">
+            </td>
+        </tr>
+        <tr>
+            <td class="title">Desire</td>
+            <td class="info">
+                <input type="text">
+            </td>
+        </tr>    
+        </table>
+    </div>  
+    <script>
+        const reader = new FileReader();
+        const file = document.querySelector('.custom-file-input');
+        file.addEventListener("change",(event)=>{
+            const files = event.target.files;
+            reader.readAsDataURL(files[0]);
+            reader.addEventListener("load",(event)=>{
+                const url = event.target.result;
+                document.querySelector('img').src = url;
+            })            	
+        })
+    </script>  
+</body>
+</html>
